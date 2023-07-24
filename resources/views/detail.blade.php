@@ -11,12 +11,20 @@
             <h3>${{$product['price']}}</h3>
             <h4>Details:{{$product['description']}}</h4>
             <h4>Category:{{$product['category']}}</h4>
-            <button class="btn btn-primary">
-                Add to cart
-            </button>
+            <form action="/add_to_cart" method="POST">
+                @csrf
+                <input type="hidden" name="product_id" value="{{$product['id']}}">
+                <button class="btn btn-primary">
+                    Add to cart
+                </button>
+            </form>
+            <form action="/buyimmediate" method="POST">
+                @csrf
+            <input type="hidden" name="product_id" value="{{$product['id']}}">    
             <button class="btn btn-success">
-                Buy now
-            </button>
+                    Buy now
+                </button>
+            </form>
         </div>
     </div>
 </div>

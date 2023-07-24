@@ -1,3 +1,11 @@
+<?php
+use App\Http\Controllers\ProductController;
+$total=0;
+if(Session::has('user')){
+  $total=ProductController::cartItem();
+}
+?>
+
 <nav class="navbar  border-bottom ">
   <div class="container">
     <div class="d-flex align-items-center gap-1">
@@ -29,7 +37,7 @@
   <div class="container">
     <div class="d-flex align-items-center gap-1">
       <img src="/images/TW_logo.png" class="navbar-images"alt="">
-      <a class="navbar-brand" href="#">TechWare</a>
+      <a class="navbar-brand" href="/">TechWare</a>
     </div>
       <ul class="navbar-nav d-flex flex-row navbar-center mb-2 mb-lg-0 gap-5">
         <li class="nav-item">
@@ -52,11 +60,26 @@
 
       <ul class="nav navbar-nav navbar-right d-flex flex-row gap-3">
         <li class="d-flex">
-        <a href="#" class="nav-link d-flex p-0"><img class="navbar-images align-self-center"src="/images/shopping-cart.png" alt=""><div class="cart-count">0</div></a>
+        <a href="/cartlist" class="nav-link d-flex p-0"><img class="navbar-images align-self-center"src="/images/shopping-cart.png" alt=""><div class="cart-count">{{$total}}</div></a>
         </li>
-        <li>
-            <a href="#" class="nav-link"><img class="navbar-images align-self-center"src="/images/user-logo.png" alt=""></a>
+        <li><div class="dropdown">
+          <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img class="navbar-images align-self-center"src="/images/user-logo.png" alt="">
+            @if(Session::has('user'))
+            {{Session::get('user')['name']}}
+            @else
+            @endif
+          </button>
+          <ul class="dropdown-menu position-absolute">
+          @if(Session::has('user'))
+          <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          @else
+          <li><a href="/login" class="dropdown-item">Login</a></li>
+          @endif
+        </ul>
+        </div>
         </li>
+        
       </ul>
   </div>
 </nav>

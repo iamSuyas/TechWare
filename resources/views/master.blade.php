@@ -25,7 +25,8 @@
     }
    
     .custom-product{
-        height:800px;
+        display: inline-block;
+        height:max-content;
         width:100%;
         
     }
@@ -78,12 +79,9 @@
         padding-left:20px;
         width: 100%;
     }
-    /* footer{
-        position:absolute;
-        bottom:0;
-        right:0;
-        left:0;
-    } */
+    footer{
+        height:max-content;
+    }
     .footer-images{
         height:15px;
         width:15px;
@@ -100,5 +98,8 @@
         margin:30px;
 
     }
+   
+
+   
 </style>
 </html>
