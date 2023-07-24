@@ -1,117 +1,72 @@
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-white text-muted">
   <!-- Section: Social media -->
-  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-    <!-- Left -->
-    <div class="me-5 d-none d-lg-block">
-      <span>Get connected with us on social networks:</span>
-    </div>
-    <!-- Left -->
 
-    <!-- Right -->
-    <div>
-      <a href="" class="me-4 link-secondary">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="" class="me-4 link-secondary">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="" class="me-4 link-secondary">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="" class="me-4 link-secondary">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="" class="me-4 link-secondary">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="" class="me-4 link-secondary">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <!-- Right -->
-  </section>
   <!-- Section: Social media -->
 
   <!-- Section: Links  -->
-  <section class="">
+  <section class="border-top mt-5">
     <div class="container text-center text-md-start mt-5">
       <!-- Grid row -->
       <div class="row mt-3">
         <!-- Grid column -->
-        <div class="col-md-1 col-lg-1  mx-auto mb-4">
+        <div class="col-md-1 w-25">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Products
+          <h6 class="text-uppercase fw-bold mb-2 px-3">
+            Get Help
           </h6>
-          <p>
-            <a href="#!" class="text-reset">Angular</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">React</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Vue</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Laravel</a>
-          </p>
+          <ul class="list-group ">
+            <li class="list-group-item border border-0">Frequently Asked Questions</li>
+            <li class="list-group-item border border-0">Order Status</li>
+            <li class="list-group-item border border-0">PowerUp Rewards Credit Card</li>
+            <li class="list-group-item border border-0">Recall Notices</li>
+            <li class="list-group-item border border-0">Returns</li>
+            <li class="list-group-item border border-0">Store Feedback</li>
+          </ul>
         </div>
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-1 col-lg-1  mx-auto mb-4">
+        <div class="col-md-1 w-25">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Products
+          <h6 class="text-uppercase fw-bold mb-2 px-3">
+          Legal & privacy
           </h6>
-          <p>
-            <a href="#!" class="text-reset">Angular</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">React</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Vue</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Laravel</a>
-          </p>
+          <ul class="list-group ">
+          <li class="list-group-item border border-0">CA Privacy Rights </li>
+          <li class="list-group-item border border-0">CA Transparency Act </li>
+          <li class="list-group-item border border-0">Privacy Policy </li>
+          <li class="list-group-item border border-0">Conditions of Use </li>
+          <li class="list-group-item border border-0">PowerUp Rewards </li>
+          <li class="list-group-item border border-0">Terms & Conditions</li>
+          </ul>
         </div>
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-1 col-lg-1  mx-auto mb-4">
+        <div class="col-md-1 w-25">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Useful links
+          <h6 class="text-uppercase fw-bold mb-2 px-3">
+          About Us
           </h6>
-          <p>
-            <a href="#!" class="text-reset">Pricing</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Settings</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Orders</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Help</a>
-          </p>
-        </div>
-        <!-- Grid column -->
+          <ul class="list-group ">
+            <li class="list-group-item border border-0">Accessibility</li>
+            <li class="list-group-item border border-0">Affiliates</li>
+            <li class="list-group-item border border-0">Careers</li>
+            <li class="list-group-item border border-0">Investors</li>
+            <li class="list-group-item border border-0">Product Information</li>
+          </ul>
+</div>
+<!-- Grid column -->
 
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+<!-- Grid column -->
+<div class="col-md-1 w-25">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-          <p><i class="fas fa-home me-3 text-secondary"></i> New York, NY 10012, US</p>
-          <p>
-            <i class="fas fa-envelope me-3 text-secondary"></i>
-            info@example.com
-          </p>
-          <p><i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567 88</p>
-          <p><i class="fas fa-print me-3 text-secondary"></i> + 01 234 567 89</p>
+          <h6 class="text-uppercase fw-bold mb- px-3">Contact</h6>
+          <p class="px-3"><img class="footer-images"src="/images/home.png" alt="">Sifal, Kathmandu</p>
+          <p class="px-3"><img class="footer-images"src="/images/email.png" alt="">info@example.com</p>
+          <p class="px-3"><img class="footer-images"src="/images/phone.png" alt="">+ 01 xxxxxxx</p>
+          <p class="px-3"><img class="footer-images"src="/images/fax.png" alt="">+ 01 xxxxxxx</p>
         </div>
         <!-- Grid column -->
       </div>
@@ -123,7 +78,7 @@
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
     © 2021 Copyright:
-    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">TechWare.com</a>
   </div>
   <!-- Copyright -->
 </footer>
