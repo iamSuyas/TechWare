@@ -1,8 +1,10 @@
 @extends('master')
 @section('content')
 
-<div class=" container custom-product">
-    <div class="search-wrapper">
+<div class=" custom-product d-flex justify-content-evenly">
+    <div class="w-75">
+      <div class="search-wrapper">
+    
        
     <table class="table">
   <thead>
@@ -32,7 +34,7 @@
 <div class="order w-100 d-flex justify-content-end"><a href="ordernow" class="btn btn-success">Order Now</a></div>
       </div>
     </div>
-
+    </div>
 
 
 

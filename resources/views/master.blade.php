@@ -31,18 +31,24 @@
         
     }
     .trending-image{
-        height:100px;
+        width: 222px;
+        height: 207px;
     }
     .trending-items{
-        float:left;
-        width:20%;
+        text-decoration: none;
+        width: 222px;
+        height: 301px;
+        border-radius: 29px;
+        background: #FFF;
+        box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.25);
     }
     .trending-wrapper{
-        margin:30px;
-
+        margin-left:100px;
+        margin-top:40px;
+        width:80%;
     }
     .detail-img{
-        height:200px;
+        height:350px;
     }
     .navbar-images{
         height:20px;
@@ -98,8 +104,43 @@
         margin:30px;
 
     }
-   
-
-   
+    .cart-list-divider{
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 20px;
+        padding-bottom: 20px
+    }
+    a{
+    text-decoration: none;
+    }
+    a:link, a:visited, a:hover, a:active{
+    text-decoration: none;
+    }
+   .orange-button{
+    border-radius: 6px;
+    background: #FFA800;
+   }
+   .normal-button{
+    border-radius: 6px;
+    border: 1px solid #FFA800;
+   }
+   .normal-button:hover{
+    border-radius: 6px;
+    background: #FFA800;
+   }
+   .orange-button:hover{
+    border-radius: 6px;
+    border: 1px solid #FFA800;
+   }
+   .form-control{
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0) !important;
+    outline:none;
+}
+.form-control:focus{
+    box-shadow: 0 00px 0px 0 rgba(0, 0, 0, 0) !important;
+    outline:none;
+   }
+   .dropdown-menu:active{
+    border:1px solid white !important;
+   }
 </style>
 </html>

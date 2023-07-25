@@ -22,22 +22,26 @@
           <span class="sr-only"></span>
         </a>
       </div>
+    
 
 
 
-    <div class="trending-wrapper">
-        <h3>Trending Products</h3> 
-        @foreach($products as $product)
-        <div class="trending-items">
-        <a href="detail/{{$product['id']}}">
-          <img class="trending-image" src="{{$product['gallery']}}" >
-          <div class="">
-            <h3>{{$product['name']}}</h3>
-          </div>
-          </a>
-        </div>
-        @endforeach
-      </div>
+      <div class="trending-wrapper">
+    <p class="fs-1 fw-medium">Trending Products</p>
+<div class="d-flex gap-5">
+@foreach($products as $product)
+  <div class="trending-items d-flex justify-content-center">
+  <a href="detail/{{$product['id']}}" >
+    <img class="trending-image" src="{{$product['gallery']}}" >
+    <div class="text-dark text-center mt-2 px-2 position-absolute">
+      <p class="m-0 text-start fs-5">{{$product['name']}}</p>
+      <p class="m-0 text-start fs-6">{{$product['price']}}</p>
+    </div>
+    </a>
+  </div>
+  @endforeach
+</div>
+</div>
     </div>
 </div>
 

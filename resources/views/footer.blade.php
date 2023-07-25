@@ -65,7 +65,7 @@
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb- px-3">Contact</h6>
             <p class="px-3"><img class="footer-images"src="/images/home.png" alt="">Sifal, Kathmandu</p>
-            <p class="px-3"><img class="footer-images"src="/images/email.png" alt="">info@example.com</p>
+            <p class="px-3"><img class="footer-images"src="/images/email.png" alt="">contact.techware@gmail.com</p>
             <p class="px-3"><img class="footer-images"src="/images/phone.png" alt="">+ 01 xxxxxxx</p>
             <p class="px-3"><img class="footer-images"src="/images/fax.png" alt="">+ 01 xxxxxxx</p>
           </div>

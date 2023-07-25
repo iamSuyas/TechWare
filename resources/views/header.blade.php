@@ -41,10 +41,7 @@ if(Session::has('user')){
     </div>
       <ul class="navbar-nav d-flex flex-row navbar-center mb-2 mb-lg-0 gap-5">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="#">Deals</a>
+          <a class="nav-link" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="#">Brands</a>
@@ -54,7 +51,7 @@ if(Session::has('user')){
         </li>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Accessories</a>
+          <a class="nav-link" href="/myorder">Orders</a>
         </li>
       </ul>
 
@@ -70,11 +67,12 @@ if(Session::has('user')){
             @else
             @endif
           </button>
-          <ul class="dropdown-menu position-absolute">
+          <ul class="dropdown-menu position-absolute ">
           @if(Session::has('user'))
-          <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          <li><a class="dropdown-item " href="/logout">Logout</a></li>
           @else
           <li><a href="/login" class="dropdown-item">Login</a></li>
+          <li><a href="/register" class="dropdown-item">Register</a></li>
           @endif
         </ul>
         </div>
