@@ -70,12 +70,13 @@
             <p class="px-3"><img class="footer-images"src="/images/fax.png" alt="">+ 01 xxxxxxx</p>
           </div>
           <!-- Grid column -->
+          
         </div>
         <!-- Grid row -->
       </div>
     </section>
     <!-- Section: Links  -->
-  
+
     <!-- Copyright -->
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
       © 2021 Copyright:

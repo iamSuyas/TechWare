@@ -9,4 +9,8 @@ class Cart extends Model
 {
     use HasFactory;
     public $table="cart";
+    public function product()
+{
+    return $this->belongsTo(Product::class);
+}
 }

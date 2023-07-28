@@ -36,8 +36,9 @@ if(Session::has('user')){
 <nav class="navbar  border-bottom ">
   <div class="container">
     <div class="d-flex align-items-center gap-1">
+      <a class="navbar-brand" href="/">
       <img src="/images/TW_logo.png" class="navbar-images"alt="">
-      <a class="navbar-brand" href="/">TechWare</a>
+        TechWare</a>
     </div>
       <ul class="navbar-nav d-flex flex-row navbar-center mb-2 mb-lg-0 gap-5">
         <li class="nav-item">
@@ -82,9 +83,9 @@ if(Session::has('user')){
   </div>
 </nav>
 
-<nav class="navbar border-bottom bg-light search-nav">
+<nav class="navbar border-bottom bg-light search-nav ">
   <div class="container d-flex justify-content-center align-items-center">
-      <form action="/search"class="search-area" role="search">
+      <form action="/search"class="search-area m-0" role="search">
         <input class="search-bar" name="query"type="search" placeholder="Search entire store here" aria-label="Search">
         <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
       </form> 

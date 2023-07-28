@@ -35,6 +35,9 @@ Route::post('add_to_cart',[ProductController::class,'addToCart']);
 Route::post('buyimmediate',[ProductController::class,'buyImmediate']);
 Route::get('cartlist',[ProductController::class,'cartlist']);
 Route::get('removecart/{id}',[ProductController::class,'removeCart']);
-Route::get('ordernow',[ProductController::class,'orderNow']);
 Route::post('orderplace',[ProductController::class,'orderPlace']);
 Route::get('myorder',[ProductController::class,'myOrder']);
+Route::put('updatecart', [ProductController::class,'cartUpdate']);
+
+Route::get('/orders/index',[ProductController::class,'orderPage']);
+Route::get('deleteOrder/{id}',[ProductController::class,'deleteOrder']);

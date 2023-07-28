@@ -18,6 +18,7 @@
                       <p>Address : {{$order->address}}</p>
                       <p>Payment Status : {{$order->payment_status}}</p>
                       <p>Payment Method : {{$order->payment_method}}</p>
+                      <p>Quantity: {{$order->count}}</p>
                     </div>
              </div>
             </div>
