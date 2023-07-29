@@ -1,7 +1,7 @@
 @extends('adminLayout')
   
 @section('adminContent')
-<di class="custom-product d-flex justify-content-center">
+<div class="custom-product d-flex justify-content-center">
        <div class="col-sm-10">
          <h4 class="w-100 text-center fs-2 fw-bold mt-4">My Orders </h4>
         <div class="trending-wrapper border-top">
@@ -20,7 +20,6 @@
                  <p>Payment Status : {{$data->payment_status}}</p>
                  <p>Payment Method : {{$data->payment_method}}</p>
                  <p>Quantity: {{$data->count}}</p>
-                 <p>count: {{$data->count}}</p>
                  <p>price: {{$data->price}}</p>
                  <p>brand: {{$data->brand}}</p>
                  <p>userName: {{$data->userName}}</p>
@@ -33,5 +32,5 @@
            </div>
 
       </div>
-</di v>
+</div>
     @endsection
