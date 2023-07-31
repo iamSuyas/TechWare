@@ -3,6 +3,8 @@
 <div class="container login-space">
     <div class="row d-flex justify-content-center ">
         <div class="col-sm-4">
+        <div class="text-center fs-3">User Register</div>
+
         <form action="register" method="POST">
           @csrf
     <div class="mb-3">

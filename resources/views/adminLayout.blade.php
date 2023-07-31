@@ -9,6 +9,47 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </head>
 <body>
+<nav class="navbar  border-bottom ">
+  <div class="container">
+    <div class="d-flex align-items-center gap-1">
+      <a class="navbar-brand" href="/">
+      <img src="/images/TW_logo.png" class="navbar-images"alt="">
+        TechWare</a>
+    </div>
+      <ul class="navbar-nav d-flex flex-row navbar-center mb-2 mb-lg-0 gap-5">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/admin/products">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="/admins">New Admin</a>
+        </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/orders">Orders</a>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right d-flex flex-row gap-3">
+        <li><div class="dropdown">
+          <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img class="navbar-images align-self-center"src="/images/user-logo.png" alt="">
+            @if(Session::has('admin'))
+            {{Session::get('admin')['name']}}
+            @else
+            @endif
+          </button>
+          <ul class="dropdown-menu position-absolute ">
+          <li><a class="dropdown-item " href="/logout">Logout</a></li>
+        </ul>
+        </div>
+        </li>
+      </ul>
+  </div>
+</nav>
+
     @yield('adminContent')
 </body>
 <style>

@@ -84,8 +84,10 @@ class ProductController extends Controller
     }
     static function cartItem()
     {
+         
         $userId = Session::get('user')['id'];
         return Cart::where('user_id', $userId)->count();
+       
     }
     function cartlist(Request $request)
     {
@@ -99,13 +101,18 @@ class ProductController extends Controller
             return redirect('/login');
         }
     }
-    function removeCart($id)
-    {
+    function removeCart($id,Request $request)
+    {   if ($request->session()->has('user')){
         Cart::destroy($id);
         return redirect('/cartlist');
     }
+    else{ 
+        return redirect('/login'); 
+    }
+    }
     public function orderNow(Request $request)
     {
+        
         $userId = Session::get('user')['id'];
         $selectedCartIds = $request->input('selected_cart_ids', []);
 
@@ -212,13 +219,51 @@ class ProductController extends Controller
         ->join('products', 'orders.product_id', '=', 'products.id')
         ->join('users','users.id', '=', 'orders.user_id')
         ->select('orders.id as orderID','orders.*','products.*', 'users.name as userName', 'users.email as userMail')->get();
-        // return ['sentData' => $sentData];
-        return view('/adminOrders.index',['ordersData'=>$sentData]);
+        return view('adminOrders.index',['ordersData'=>$sentData]);
     }
     function deleteOrder($id)
     {
         Order::destroy($id);
         return redirect('/orders/index');
     }
+    function createProductPage(){
+        return view('adminProducts.create');
+    }
+    function createProduct(Request $request){
+        $image=$request->file('gallery')->store('gallery');
+        $product=new Product;
+        $product->name=$request->name;
+        $product->price=$request->price;
+        $product->description=$request->description;
+        $product->category=$request->category;
+        $product->brand=$request->brand;
+        $product->gallery=$image;
+        $product->save();
+        return redirect ('admin/products');
+    }
+    function getProducts(){
+        $products= Product::all();
+        return view('adminProducts.index',['products'=>$products]);
+    }
+    function deleteProduct($id)
+    {
+        Product::destroy($id);
+        return redirect('/admin/products');
+    }
+    public function editProduct($id){
+        $product=Product::findOrFail($id);
+        return view('adminProducts.edit',['product'=>$product]);
+    }
+    public function updateProduct(Request $request,$id){
+        $product=Product::findOrFail($id);
+        $product->name=$request->name;
+        $product->price=$request->price;
+        $product->description=$request->description;
+        $product->category=$request->category;
+        $product->brand=$request->brand;
+        $product->update();
+        return redirect('/admin/products');
+}
 
 }
+    

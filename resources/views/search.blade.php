@@ -9,7 +9,7 @@
             <div class="search-items">
             
                   <a href="detail/{{$product['id']}}">
-                      <img class="trending-image" src="{{$product['gallery']}}" >
+                      <img class="trending-image" src="{{asset('storage/'. $product->gallery)}}" >
                       <div class="">
                         <h4>{{$product['name']}}</h4>
                         <h4>{{$product['description']}}</h4>

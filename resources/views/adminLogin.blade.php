@@ -1,11 +1,11 @@
 @extends('master')
+  
 @section('content')
 <div class="container login-space">
     <div class="row d-flex justify-content-center">
         <div class="col-sm-4 ">
-        <div class="text-center fs-3">User Login</div>
-
-        <form action="login" method="POST">
+        <div class="text-center fs-3">Admin Login</div>
+        <form action="/admin/loginattempt" method="POST">
           @csrf
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>

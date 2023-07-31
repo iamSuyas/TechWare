@@ -10,7 +10,7 @@
             @foreach($ordersData as $data)
             <div class=" row searched-order cart-list-divider">
               <div class="col-sm-3 d-flex my-3 justify-content-center align-items-center border-end">
-                <div><img class="trending-image" src="{{$data->gallery}}"></div>
+                <div><img class="trending-image" src="{{asset('storage/'. $data->gallery)}}"></div>
               </div>
              <div class="col-sm-4">
                <div class="fw-medium">
@@ -24,7 +24,7 @@
                  <p>brand: {{$data->brand}}</p>
                  <p>userName: {{$data->userName}}</p>
                  <p>userMail: {{$data->userMail}}</p>
-                 <a href="/deleteOrder/{{$data->orderID}}" class='btn'>delete</a>
+                 <a href="/deleteOrder/{{$data->orderID}}" class='btn btn-warning'>delete</a>
                 </div>
               </div>
             </div>

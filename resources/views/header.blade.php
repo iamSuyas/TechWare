@@ -45,10 +45,15 @@ if(Session::has('user')){
           <a class="nav-link" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
+          
           <a class="nav-link" aria-current="page" href="#">Brands</a>
         </li>
         <li class="nav-item">
+        @if(Session::has('admin'))
+        <a class="nav-link " aria-current="page" href="admin/orders">Admin Panel</a>
+        @else
           <a class="nav-link " aria-current="page" href="#">Categories</a>
+          @endif
         </li>
         </li>
         <li class="nav-item">
@@ -65,14 +70,17 @@ if(Session::has('user')){
             <img class="navbar-images align-self-center"src="/images/user-logo.png" alt="">
             @if(Session::has('user'))
             {{Session::get('user')['name']}}
+            @elseif(Session::has('admin'))
+            {{Session::get('admin')['name']}}
             @else
             @endif
           </button>
           <ul class="dropdown-menu position-absolute ">
-          @if(Session::has('user'))
+          @if(Session::has('user')||Session::has('admin'))
           <li><a class="dropdown-item " href="/logout">Logout</a></li>
           @else
           <li><a href="/login" class="dropdown-item">Login</a></li>
+          <li><a href="/admin/login" class="dropdown-item">Admin Login</a></li>
           <li><a href="/register" class="dropdown-item">Register</a></li>
           @endif
         </ul>

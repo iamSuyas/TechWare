@@ -32,7 +32,7 @@
 @foreach($products as $product)
   <div class="trending-items d-flex justify-content-center">
   <a href="detail/{{$product['id']}}" >
-    <img class="trending-image" src="{{$product['gallery']}}" >
+    <img class="trending-image" src="{{asset('storage/'. $product->gallery)}}" >
     <div class="text-dark text-center mt-2 px-2 position-absolute">
       <p class="m-0 text-start fs-5">{{$product['name']}}</p>
       <p class="m-0 text-start fs-6">{{$product['price']}}</p>

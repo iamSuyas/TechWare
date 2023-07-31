@@ -4,7 +4,7 @@
         
         <div class="w-100 d-flex gap-3">
             <div class="col-sm-6 d-flex justify-content-center">
-                <img class="detail-img" src="{{$product['gallery']}}" alt="">
+                <img class="detail-img" src="{{asset('storage/'. $product->gallery)}}" alt="">
             </div>
             <div class="col-sm-6 d-flex flex-column justify-content-center px-3 border-start">
                 <p class="fs-1 mb-0 fw-medium">{{$product['name']}}</p>
@@ -39,7 +39,7 @@
 @foreach($allproducts as $eachproduct)
   <div class="trending-items d-flex justify-content-center">
   <a href="detail/{{$eachproduct['id']}}" >
-    <img class="trending-image" src="{{$eachproduct['gallery']}}" >
+    <img class="trending-image" src="{{asset('storage/'. $eachproduct->gallery)}}" >
     <div class="text-dark text-center mt-2 px-2">
       <p class="m-0 text-start fs-5">{{$eachproduct['name']}}</p>
       <p class="m-0 text-start fs-6">{{$eachproduct['price']}}</p>

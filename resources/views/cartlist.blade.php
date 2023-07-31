@@ -31,7 +31,7 @@
       </td>
       <td>{{$product->name}}</td>
       <td>{{$product->description}}</td>
-      <td class="d-flex justify-content-center"><img class="trending-image" src="{{$product->gallery}}" ></td>
+      <td class="d-flex justify-content-center"><img class="trending-image" src="{{asset('storage/'. $product->gallery)}}" ></td>
       <td>{{$product->price}}</td>
       <td>
     
