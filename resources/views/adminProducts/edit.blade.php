@@ -28,7 +28,7 @@
     <label for="name" class="form-label">Brand:</label>
     <input type="text" name="brand"class="form-control" value="{{$product->brand}}">
   </div>
-  <button type="submit" class="btn orange-button w-100 py-2">Upload</button>
+  <button type="submit" class="btn btn-dark w-100 py-2">Upload</button>
 </form>
         </div>
     </div>

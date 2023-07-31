@@ -1,12 +1,10 @@
 @extends('master')
 @section('content')
-
-<div class="custom-product">
-    <div class="search-wrapper">
-        <h4>Showing results for "{{$query}}"</h4> 
-        <div class="d-flex flex-wrap gap-3">
-            @foreach($products as $product)
-            <div class="trending-items d-flex justify-content-center flex-wrap">
+<div class="trending-wrapper">
+    <p class="fs-1 fw-medium">Trending Products</p>
+<div class="d-flex gap-5">
+@foreach($products as $product)
+  <div class="trending-items d-flex justify-content-center">
   <a href="detail/{{$product['id']}}" >
     <img class="trending-image" src="{{asset('storage/'. $product->gallery)}}" >
     <div class="text-dark text-center mt-2 px-2 position-absolute">
@@ -15,8 +13,9 @@
     </div>
     </a>
   </div>
-            @endforeach
-        </div>
-      </div>
-    </div>
+  @endforeach
+</div>
+</div>
+
+
 @endsection

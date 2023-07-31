@@ -19,8 +19,12 @@ class ProductController extends Controller
     {
         $data = Product::all();
         $imageData = CarouselAssets::all();
-
+        
         return view('product', ['products' => $data], ['carousel_assets' => $imageData]);
+    }
+    function allProducts(){
+        $products=Product::all();
+        return view('allProducts', ['products' => $products]);
     }
     function detail($id)
     {
@@ -32,7 +36,8 @@ class ProductController extends Controller
     function search(Request $request)
     {
         $data = Product::where('name', 'like', '%' . $request->input('query') . '%')->get();
-        return view('search', ['products' => $data]);
+        $query=$request->input('query');
+        return view('search', ['products' => $data],['query'=>$query]);
     }
     function addToCart(Request $request)
     {
@@ -138,7 +143,7 @@ class ProductController extends Controller
     function orderPlace(Request $request)
     {
         $userId = Session::get('user')['id'];
-        $allCart = Cart::where('user_id', $userId)->get();
+         $allCart = Cart::where('user_id', $userId)->get();
         foreach ($allCart as $cart) {
             $order = new Order;
             $order->product_id = $cart['product_id'];
@@ -177,7 +182,7 @@ class ProductController extends Controller
             if (strpos($key, 'cart_count_') === 0) {
                 // Extract the cartId from the key
                 $cartId = substr($key, strlen('cart_count_'));
-
+                
                 // Get the new count value from the request
                 $newCount = $value;
 

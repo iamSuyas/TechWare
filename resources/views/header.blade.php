@@ -6,7 +6,7 @@ if(Session::has('user')){
 }
 ?>
 
-<nav class="navbar  border-bottom ">
+<nav class="navbar  border-bottom bg-light">
   <div class="container">
     <div class="d-flex align-items-center gap-1">
       <img src="/images/phone.png" class="navbar-images"alt="">
@@ -33,7 +33,7 @@ if(Session::has('user')){
   </div>
 </nav>
 
-<nav class="navbar  border-bottom ">
+<nav class="navbar  border-bottom bg-light">
   <div class="container">
     <div class="d-flex align-items-center gap-1">
       <a class="navbar-brand" href="/">
@@ -76,8 +76,10 @@ if(Session::has('user')){
             @endif
           </button>
           <ul class="dropdown-menu position-absolute ">
-          @if(Session::has('user')||Session::has('admin'))
-          <li><a class="dropdown-item " href="/logout">Logout</a></li>
+          @if(Session::has('user'))
+          <li><a class="dropdown-item " href="/user/logout">Logout</a></li>
+          @elseif(Session::has('admin'))
+          <li><a class="dropdown-item " href="/admin/logout">Logout</a></li>
           @else
           <li><a href="/login" class="dropdown-item">Login</a></li>
           <li><a href="/admin/login" class="dropdown-item">Admin Login</a></li>

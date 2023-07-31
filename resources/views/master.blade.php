@@ -9,8 +9,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </head>
 <body>
-    {{View::make('header')}}
-    @yield('content')
+    <div class="fixed-top">
+        {{View::make('header')}}
+    </div>
+
+    <div class="content-style">@yield('content')</div>
     {{View::make('footer')}}
 </body>
 <style>
@@ -19,9 +22,12 @@
         padding-top:100px;
     }
     .slider-img{
-        height:590px !important;    
+        height:650px !important;    
         
 
+    }
+    .content-style{
+        margin-top:8%;
     }
    
     .custom-product{
@@ -115,22 +121,7 @@
     a:link, a:visited, a:hover, a:active{
     text-decoration: none;
     }
-   .orange-button{
-    border-radius: 6px;
-    background: #FFA800;
-   }
-   .normal-button{
-    border-radius: 6px;
-    border: 1px solid #FFA800;
-   }
-   .normal-button:hover{
-    border-radius: 6px;
-    background: #FFA800;
-   }
-   .orange-button:hover{
-    border-radius: 6px;
-    border: 1px solid #FFA800;
-   }
+   
    .form-control{
     box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0) !important;
     outline:none;

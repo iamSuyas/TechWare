@@ -21,7 +21,7 @@ class CarouselSeeder extends Seeder
             ['image'=>'/images/MacBook-Air-15.png'],
             ['image'=>'/images/MacBook-air-m2.png'],
             ['image'=>'/images/macbook-pro.png'],
-            ['image'=>'/images/macbook-pro1.png'],
+            ['image'=>'/images/macbook-pro1.jpg'],
             
 
         ]);

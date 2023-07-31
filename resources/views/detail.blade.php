@@ -14,14 +14,14 @@
                     <form action="/add_to_cart" method="POST">
                         @csrf
                         <input type="hidden" name="product_id" value="{{$product['id']}}">
-                        <button class="btn normal-button">
+                        <button class="btn btn-dark ">
                             Add to cart
                         </button>
                     </form>
                     <form action="/buyimmediate" method="POST">
                         @csrf
                     <input type="hidden" name="product_id" value="{{$product['id']}}">
-                    <button class="btn orange-button ">
+                    <button class="btn btn-outline-dark  ">
                             Buy it now
                         </button>
                     </form>

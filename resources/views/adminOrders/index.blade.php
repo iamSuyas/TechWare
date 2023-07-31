@@ -3,7 +3,7 @@
 @section('adminContent')
 <div class="custom-product d-flex justify-content-center">
        <div class="col-sm-10">
-         <h4 class="w-100 text-center fs-2 fw-bold mt-4">My Orders </h4>
+         <h4 class="w-100 text-center fs-2 fw-bold mt-4">Orders </h4>
         <div class="trending-wrapper border-top">
           
 
@@ -24,7 +24,7 @@
                  <p>brand: {{$data->brand}}</p>
                  <p>userName: {{$data->userName}}</p>
                  <p>userMail: {{$data->userMail}}</p>
-                 <a href="/deleteOrder/{{$data->orderID}}" class='btn btn-warning'>delete</a>
+                 <a href="/deleteOrder/{{$data->orderID}}" class='btn btn-dark '>delete</a>
                 </div>
               </div>
             </div>

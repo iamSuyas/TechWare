@@ -42,7 +42,12 @@
             @endif
           </button>
           <ul class="dropdown-menu position-absolute ">
-          <li><a class="dropdown-item " href="/logout">Logout</a></li>
+          @if(Session::has('user'))
+          <li><a class="dropdown-item " href="/user/logout">Logout</a></li>
+          @elseif(Session::has('admin'))
+          <li><a class="dropdown-item " href="/admin/logout">Logout</a></li>
+          @else
+          @endif
         </ul>
         </div>
         </li>

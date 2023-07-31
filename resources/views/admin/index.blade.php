@@ -27,7 +27,7 @@
             <td>{{$admin->password}}</td>
         <td>
             <a href="/admin/{{$admin->id}}/edit" class="btn btn-outline-dark btn-sm">Edit</a>
-            <a href="/deleteAdmin/{{$admin->id}}" class="btn btn-outline-dark btn-sm">Delete</a>
+            <a href="/deleteAdmin/{{$admin->id}}" class="btn btn-dark btn-sm">Delete</a>
         </td>
       </tr>
       @endforeach

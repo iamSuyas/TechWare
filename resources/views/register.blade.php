@@ -20,7 +20,7 @@
     <input type="password" name="password"class="form-control" id="exampleInputPassword1">
   </div>
   
-  <button type="submit" class="btn orange-button w-100 py-2">Register</button>
+  <button type="submit" class="btn btn-dark  w-100 py-2">Register</button>
 </form>
         </div>
     </div>

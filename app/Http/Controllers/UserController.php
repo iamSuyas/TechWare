@@ -22,26 +22,6 @@ class UserController extends Controller
         }
         
     }
-    
-    function register(Request $request){
-        $user=new User;
-        $user->name=$request->name;
-        $user->email=$request->email;
-        $user->password=Hash::make($request->password);
-        $user->save();
-        return redirect ('/login');
-    }
-    
-    function logout(Request $request){
-        if ($request->session()->has('user')){
-            Session::forget('user');
-        }
-        else{
-            Session::forget('admin');
-        }
-        return redirect('/');
-
-    }
     function adminLogin(Request $request){
         $admin= Admin::where(['email' => $request->email])->first();
         
@@ -54,6 +34,18 @@ class UserController extends Controller
         }
         
     }
+    
+    function register(Request $request){
+        $user=new User;
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=Hash::make($request->password);
+        $user->save();
+        return redirect ('/login');
+    }
+    
+    
+    
     function showAdmins(){
         $admins=Admin::all();
         return view('admin.index',['admins'=>$admins]);
@@ -84,5 +76,5 @@ class UserController extends Controller
         return redirect('/admins');
     }
 
-    
+
 }

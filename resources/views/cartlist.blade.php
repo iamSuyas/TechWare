@@ -38,9 +38,9 @@
     
         <div class="d-flex justify-content-center align-items-center">
               
-      <a class="btn btn-sm btn-secondary" onclick="decrementCount({{$product->cartId}}, {{$product->cartCount}})">-</a>
+      <a class="btn btn-sm btn-dark" onclick="decrementCount({{$product->cartId}}, {{$product->cartCount}})">-</a>
       <input type="number" id="count_{{$product->cartId}}" name="cart_count_{{$product->cartId}}" value="{{$product->cartCount}}" class="form-control mx-1 quantity-button no-spinners" min="1">
-      <a class="btn btn-sm btn-secondary" onclick="incrementCount({{$product->cartId}}, {{$product->cartCount}})">+</a>
+      <a class="btn btn-sm btn-dark" onclick="incrementCount({{$product->cartId}}, {{$product->cartCount}})">+</a>
     </div>
  
       
@@ -50,7 +50,7 @@
     
     
   </td>
-  <td><a href="/removecart/{{$product->cartId}}" class="btn btn-warning">Remove</a>
+  <td><a href="/removecart/{{$product->cartId}}" class="btn btn-outline-dark ">Remove</a>
   
 </td>
 </tr>
@@ -63,7 +63,7 @@
   </div>
 </div>
 <div class="order w-100 d-flex justify-content-end">
-<button type="submit" form="updateForm" class="btn btn-success">Order Now</button></div>
+<button type="submit" form="updateForm" class="btn btn-dark ">Order Now</button></div>
 
     </div>
     </div>

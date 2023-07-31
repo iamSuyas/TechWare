@@ -8,7 +8,7 @@
             <div class=" row searched-order cart-list-divider">
              <div class="col-sm-3 d-flex justify-content-center align-items-center border-end">
                 <a href="detail/{{$order->id}}">
-                    <div class=""><img class="trending-image" src="{{asset('storage/'. $product->gallery)}}"></div>
+                    <div class=""><img class="trending-image" src="{{asset('storage/'. $order->gallery)}}"></div>
                   </a>
              </div>
              <div class="col-sm-4">
