@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Session;
 class UserController extends Controller
 {
     //
     function login(Request $request){
         $user= User::where(['email' => $request->email])->first();
-        
         if(!$user || !Hash::check($request->password,$user->password)){
             return redirect('/login');
         }
@@ -35,14 +35,24 @@ class UserController extends Controller
         
     }
     
-    function register(Request $request){
-        $user=new User;
-        $user->name=$request->name;
-        $user->email=$request->email;
-        $user->password=Hash::make($request->password);
-        $user->save();
-        return redirect ('/login');
-    }
+    function register(Request $request)
+{
+    $request->validate([
+        'name'=>"required|min:3|max:255",
+        'email'=>"required|email|unique:users,email",
+        'password'=>"required|min:3|max:255",
+        
+    ]);
+
+
+    $user = new User;
+    $user->name = $request->name;
+    $user->email = $request->email;
+    $user->password = Hash::make($request->password);
+    $user->save();
+
+    return redirect('/login');
+}
     
     
     
@@ -51,12 +61,18 @@ class UserController extends Controller
         return view('admin.index',['admins'=>$admins]);
     }
     function adminRegister(Request $request){
+        $request->validate([
+            'name'=>"required|min:3|max:255",
+            'email'=>"required|email|unique:users,email",
+            'password'=>"required|min:3|max:255",
+            
+        ]);
         $admin=new Admin;
         $admin->name=$request->name;
         $admin->email=$request->email;
         $admin->password=Hash::make($request->password);
         $admin->save();
-        return redirect ('/admin/login');
+        return redirect ('/admin/orders');
     }
 
     function deleteAdmin($id)
@@ -65,14 +81,19 @@ class UserController extends Controller
         return redirect('/admins');
     }
     public function editAdmin($id){
-        $product=Admin::findOrFail($id);
-        return view('admin.edit',['product'=>$product]);
+        $admin=Admin::findOrFail($id);
+        return view('admin.edit',['admin'=>$admin]);
     }
     public function updateAdmin(Request $request,$id){
-        $product=Admin::findOrFail($id);
-        $product->name=$request->name;
-        $product->email=$request->email;
-        $product->update();
+        $request->validate([
+            'name'=>"required|min:3|max:255",
+            'email'=>"required|email|unique:users,email",
+            
+        ]);
+        $admin=Admin::findOrFail($id);
+        $admin->name=$request->name;
+        $admin->email=$request->email;
+        $admin->update();
         return redirect('/admins');
     }
 

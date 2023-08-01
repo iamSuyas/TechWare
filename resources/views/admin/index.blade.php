@@ -3,10 +3,10 @@
 @section('adminContent')
 
 <div class="container">
-        <div class="text-right">
+        <div class="d-flex justify-content-end">
             <a href="/admin/create" class="btn btn-dark mt-2">Add Admin</a>
         </div>
-        <h1 class="text-center">Admins</h1>
+        <div class="fs-1 text-center mb-3 fw-bold">Admins</div>
         <div class="container">           
   <table class="table table-striped">
     <thead>

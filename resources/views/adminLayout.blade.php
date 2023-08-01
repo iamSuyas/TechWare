@@ -30,6 +30,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/admin/orders">Orders</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/brandinfo">Brands & Categories</a>
+        </li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right d-flex flex-row gap-3">
@@ -198,5 +201,6 @@
     input.no-spinners {
         -moz-appearance: textfield;
     }
+    
 </style>
 </html>

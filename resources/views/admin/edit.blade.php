@@ -6,7 +6,7 @@
             <div class="col-sm-7">
                 <div class="card mt-3 p-3">
                     <form method="POST" action="/admin/{{$admin->id}}" >
-                        <h3>Edit Admin [{{$admin->name}}]</h3>
+                        <div class="fs-1 text-center mb-3 fw-bold">Edit Admin [{{$admin->name}}]</div>
                         
                         @csrf
                         @method('PUT')

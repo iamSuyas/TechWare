@@ -57,13 +57,20 @@ if(Session::has('user')){
         </li>
         </li>
         <li class="nav-item">
+        @if(Session::has('user'))
           <a class="nav-link" href="/myorder">Orders</a>
+          @elseif(Session::has('admin'))
+          <a class="nav-link" href="/admin/orders">Orders</a>
+          @endif
         </li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right d-flex flex-row gap-3">
         <li class="d-flex">
+          @if(Session::has('admin'))
+          @else
         <a href="/cartlist" class="nav-link d-flex p-0"><img class="navbar-images align-self-center"src="/images/shopping-cart.png" alt=""><div class="cart-count">{{$total}}</div></a>
+        @endif
         </li>
         <li><div class="dropdown">
           <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">

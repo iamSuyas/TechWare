@@ -3,8 +3,9 @@
 @section('adminContent')
 <div class="container login-space">
     <div class="row d-flex justify-content-center ">
+    <div class="fs-1 text-center mb-3 fw-bold">Create an Admin</div>
         <div class="col-sm-4">
-        <form action="admin/register" method="POST">
+        <form action="/admin/register" method="POST">
           @csrf
     <div class="mb-3">
     <label for="exampleInputName" class="form-label">Name</label>

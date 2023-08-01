@@ -39,7 +39,7 @@
       @csrf
     <div class="form-control d-flex flex-column border-0 gap-2">
     <label for="address">Address</label>
-        <div><input type="text" name="address" class="w-50"  required></div>
+        <div><input type="text" name="address" class="w-50"  value="{{$order->address}}"required ></div>
       <div><label for="paymentMethod">Payment Method</label></div>
       <div class="d-flex gap-3">
           <div class="d-flex gap-1"><input class="form-check-input" type="radio" value="E-sewa" name="paymentmethod"><span>E-sewa</span></div>

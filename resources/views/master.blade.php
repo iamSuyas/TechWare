@@ -42,17 +42,27 @@
     }
     .trending-items{
         text-decoration: none;
-        width: 222px;
+        max-width: 222px; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         height: 301px;
         border-radius: 29px;
         background: #FFF;
         box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.25);
     }
     .trending-wrapper{
-        margin-left:100px;
+       margin:0;
         margin-top:40px;
-        width:80%;
+        width:100%;  
     }
+    .trending-items .text-start.fs-5 {
+    max-width: 212px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
     .detail-img{
         height:350px;
     }
@@ -144,6 +154,9 @@
 
     input.no-spinners {
         -moz-appearance: textfield;
+    }
+    .promo-banner{
+        background-color: #333335;
     }
 </style>
 </html>

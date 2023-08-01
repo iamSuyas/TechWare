@@ -57,7 +57,11 @@ Route::get('deleteProduct/{id}',[ProductController::class,'deleteProduct']);
 Route::get('admin/orders',[ProductController::class,'orderPage']);
 Route::get('/product/{id}/edit',[ProductController::class,'editProduct']);
 Route::put('/product/{id}',[ProductController::class,'updateProduct']);
-
+Route::get('admin/brandinfo',[ProductController::class,'brandInfo']);
+Route::post('/createBrand',[ProductController::class,'createBrand']);
+Route::post('/createCategory',[ProductController::class,'createCategory']);
+Route::get('deleteBrand/{id}',[ProductController::class,'deleteBrand']);
+Route::get('deleteCategory/{id}',[ProductController::class,'deleteCategory']);
 
 });
 
@@ -69,6 +73,7 @@ Route::put('/product/{id}',[ProductController::class,'updateProduct']);
 
 //these routes will be used only when there is no user/admin session i.e. user/admin is logged out
 
+Route::middleware('guest')->group(function(){
 
     Route::get('/login', function () {
         return view('login');
@@ -88,6 +93,7 @@ Route::put('/product/{id}',[ProductController::class,'updateProduct']);
     Route::get('/allProducts',[ProductController::class,'allProducts']);
     Route::get('detail/{id}',[ProductController::class,'detail']);
     Route::get('search',[ProductController::class,'search']);
+});
 
 
 

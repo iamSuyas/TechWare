@@ -1,8 +1,11 @@
 @extends('adminLayout')
   
 @section('adminContent')
+Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias, tempora a illo incidunt deserunt fugiat laborum eveniet. Magni quo asperiores velit deserunt iste vitae, rem voluptatum quam nulla mollitia in. Lorem ipsum dolor sit amet consectetur adipisicing elit libero 
+
 <div class="container login-space">
     <div class="row d-flex justify-content-center">
+    <div class="fs-1 text-center mb-3 fw-bold">Create Product</div>
         <div class="col-sm-4 ">
         <form action="/admin/createProduct" method="POST" enctype="multipart/form-data">
           @csrf
@@ -16,7 +19,8 @@
   </div>
   <div class="mb-3">
     <label for="name" class="form-label">Description:</label>
-    <input type="text" name="description"class="form-control">
+    <textarea class="form-control" style="height: 150px" name="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias, tempora a illo incidunt deserunt fugiat laborum eveniet. Magni quo asperiores velit deserunt iste vitae, rem voluptatum quam nulla mollitia in. Lorem ipsum dolor sit amet consectetur adipisicing elit libero
+</textarea>
   </div>
   <div class="mb-3">
     <label for="name" class="form-label">Image:</label>
@@ -24,11 +28,22 @@
   </div>
   <div class="mb-3">
     <label for="name" class="form-label">Category:</label>
-    <input type="text" name="category" class="form-control">
+    <select name="category" class="form-control">
+    <option value="">--Please select--</option>
+        @foreach($categories as $category)
+            <option value="{{ $category->name }}">{{ $category->name }}</option>
+        @endforeach
+    </select>
   </div>
   <div class="mb-3">
     <label for="name" class="form-label">Brand:</label>
-    <input type="text" name="brand"class="form-control">
+    <select name="brand" class="form-control">
+      <option value="">--Please select--</option>
+        
+        @foreach($brands as $brand)
+            <option value="{{ $brand->name }}">{{ $brand->name }}</option>
+        @endforeach
+    </select>
   </div>
   <button type="submit" class="btn btn-dark  w-100 py-2">Upload</button>
 </form>

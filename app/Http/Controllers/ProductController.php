@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Category;
 use App\Models\CarouselAssets;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -17,10 +19,14 @@ class ProductController extends Controller
     //
     function index()
     {
-        $data = Product::all();
+        $trending = Product::inRandomOrder()->take(7)->get();
+        $newRel = Product::inRandomOrder()->take(7)->get();
         $imageData = CarouselAssets::all();
+        $data=[
+            'trendingproducts' => $trending, 'carousel_assets' => $imageData,'newproducts' => $newRel,
+        ];
         
-        return view('product', ['products' => $data], ['carousel_assets' => $imageData]);
+        return view('product', $data);
     }
     function allProducts(){
         $products=Product::all();
@@ -29,7 +35,7 @@ class ProductController extends Controller
     function detail($id)
     {
         $data = Product::findorfail($id);
-        $moredata = Product::all();
+        $moredata = Product::inRandomOrder()->take(7)->get();
         return view('detail', ['product' => $data], ['allproducts' => $moredata]);
 
     }
@@ -58,7 +64,7 @@ class ProductController extends Controller
                 $cart->save();
 
             }
-            return redirect('/');
+            return redirect()->back();
         } else {
             return redirect('/login');
         }
@@ -106,27 +112,24 @@ class ProductController extends Controller
             return redirect('/login');
         }
     }
-    function removeCart($id,Request $request)
-    {   if ($request->session()->has('user')){
+    function removeCart($id)
+    {   
         Cart::destroy($id);
         return redirect('/cartlist');
-    }
-    else{ 
-        return redirect('/login'); 
-    }
+    
     }
     public function orderNow(Request $request)
     {
         
         $userId = Session::get('user')['id'];
         $selectedCartIds = $request->input('selected_cart_ids', []);
-
+        
         // Get the cart items for the current user session
         $cartItems = Cart::where('user_id', $userId)
             ->whereIn('id', $selectedCartIds)
             ->with('product')
             ->get();
-
+        
         $total = 0;
 
         foreach ($cartItems as $item) {
@@ -166,11 +169,13 @@ class ProductController extends Controller
     function myOrder(Request $request){
         if($request->session()->has('user')){
             $userId=Session::get('user')['id'];
-            $orders= DB::table('orders')->join('products','orders.product_id','=','products.id')
-            ->where('orders.user_id',$userId)
+            $orders=DB::table('orders')->join('products', 'orders.product_id', '=', 'products.id')
+            ->where('orders.user_id', $userId)
             ->get();
+            
             return view('myOrders',['orders'=>$orders]);
         }
+
         else{
             return redirect('/login');
         }
@@ -199,6 +204,8 @@ class ProductController extends Controller
         $userId = Session::get('user')['id'];
         $selectedCartIds = $request->input('selected_cart_ids', []);
 
+        $order=Order::where('user_id', $userId)
+        ->get()->last();
         // Get the cart items for the current user session
         $cartItems = Cart::where('user_id', $userId)
             ->whereIn('id', $selectedCartIds)
@@ -211,11 +218,10 @@ class ProductController extends Controller
             // Calculate the total price for each item (price * count)
             $itemTotal = $item->product->price * $item->count;
             // Add the item total to the overall total
-            $total += $itemTotal;
-
-            
+            $total += $itemTotal;   
         }
-        return view('orderNow', ['total' => $total],['cartItems' => $cartItems]);
+        $data=['total' => $total,'cartItems' => $cartItems,'order'=>$order];
+        return view('orderNow', $data);
     }
     
     // Admin interface
@@ -232,9 +238,20 @@ class ProductController extends Controller
         return redirect('/orders/index');
     }
     function createProductPage(){
-        return view('adminProducts.create');
+        $brands=Brand::all();
+        $categories=Category::all();
+        return view('adminProducts.create',compact('brands', 'categories'));
     }
     function createProduct(Request $request){
+        $request->validate([
+            'name'=>"required",
+            'price'=>"required",
+            'description'=>"required",
+            'brand'=>"required",
+            'category'=>"required",
+            'gallery'=>"required",
+            
+        ]);
         $image=$request->file('gallery')->store('gallery');
         $product=new Product;
         $product->name=$request->name;
@@ -257,10 +274,25 @@ class ProductController extends Controller
     }
     public function editProduct($id){
         $product=Product::findOrFail($id);
-        return view('adminProducts.edit',['product'=>$product]);
+        $brands=Brand::all();
+        $categories=Category::all();
+        $data = [
+            'brands' => $brands,
+            'categories' => $categories,
+            'product' => $product,
+        ];
+        // dd($data);
+        return view('adminProducts.edit',$data);
     }
     public function updateProduct(Request $request,$id){
         $product=Product::findOrFail($id);
+        $request->validate([
+            'name'=>"required",
+            'price'=>"required",
+            'description'=>"required",
+            'brand'=>"required",
+            'category'=>"required",            
+        ]);
         $product->name=$request->name;
         $product->price=$request->price;
         $product->description=$request->description;
@@ -269,6 +301,36 @@ class ProductController extends Controller
         $product->update();
         return redirect('/admin/products');
 }
+function brandInfo(){
+     $brands=Brand::all();
+    $categories=Category::all();
+    return view('brandncategory.index', compact('brands', 'categories'));
+}
+function createBrand(Request $request){
+    $request->validate(['name'=>"required",] );
+    $brand=new Brand;
+    $brand->name=$request->name;
+    $brand->save();
+    return redirect('/admin/brandinfo');
+}
+function createCategory(Request $request){
+    $request->validate(['name'=>"required",] );
+    $category=new Category;
+    $category->name=$request->name;
+    $category->save();
+    return redirect('/admin/brandinfo');
+
+}
+function deleteBrand($id)
+    {
+        Brand::destroy($id);
+        return redirect('/admin/brandinfo');
+    }
+function deleteCategory($id)
+    {
+        Category::destroy($id);
+        return redirect('/admin/brandinfo');
+    }
 
 }
     

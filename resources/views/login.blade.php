@@ -19,6 +19,7 @@
   
   <button type="submit" class="btn btn-dark  w-100 py-2">Login</button>
 </form>
+<a href="/register" class="btn btn-outline-dark  w-100 py-2 mt-2">Register</a>
         </div>
     </div>
 </div>
