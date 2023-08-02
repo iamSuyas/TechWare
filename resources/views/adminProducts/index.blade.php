@@ -18,13 +18,15 @@
              <div class="col-sm-4 w-75">
                     <div class="fw-medium">
                       <p class="fw-bold fs-3">Name : {{$product->name}}</p>
-                      <p>Price : {{$product->price}}</p>
+                      <p>Price : NPR {{$product->price}}</p>
                       <p>Description : {{$product->description}}</p>
                       <p>Category : {{$product->category}}</p>
                       <p>Brand: {{$product->brand}}</p>
                     </div>
-                    <div><a href="/product/{{$product->id}}/edit" class="btn btn-outline-dark ">Edit</a></div>
-                    <div><a href="/deleteProduct/{{$product->id}}" class="btn btn-dark ">Remove</a></div>
+                    <div class="d-flex gap-2">
+                      <div><a href="/product/{{$product->id}}/edit" class="btn btn-outline-dark ">Edit</a></div>
+                      <div><a href="/deleteProduct/{{$product->id}}" class="btn btn-dark ">Remove</a></div>
+                    </div>
              </div>
             </div>
             @endforeach

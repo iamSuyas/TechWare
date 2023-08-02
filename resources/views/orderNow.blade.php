@@ -12,11 +12,11 @@
     <tbody>
       <tr>
         <td>Sub-Total</td>
-        <td>Rs. {{$total}}</td>
+        <td>NPR {{$total}}</td>
       </tr>
       <tr>
         <td>VAT</td>
-        <td>Rs. {{ number_format(0.13 * $total, 2) }}</td>
+        <td>NPR {{ number_format(0.13 * $total, 2) }}</td>
   
       </tr>
       <tr>
@@ -24,12 +24,12 @@
         <td>@php
               $shippingCost = $total > 5000 ? 0.01 * $total : 0.05 * $total;
             @endphp
-            Rs. {{ number_format($shippingCost, 2) }}
+            NPR {{ number_format($shippingCost, 2) }}
         </td>
       </tr>
       <tr>
         <td>Total</td>
-        <td>Rs. {{ number_format($total + (0.13 * $total) + $shippingCost, 2) }}</td>
+        <td>NPR {{ number_format($total + (0.13 * $total) + $shippingCost, 2) }}</td>
       </tr>
     </tbody>
   </table>

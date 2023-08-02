@@ -3,7 +3,8 @@
 @section('adminContent')
 <div class="container login-space">
     <div class="row d-flex justify-content-center">
-        <div class="col-sm-4">
+        <div class="col-sm-5">
+    <div class="fs-1 text-center mb-3 fw-bold">Edit Product</div>
             <form action="/product/{{$product->id}}" method="POST">
                 @csrf
                 @method('PUT')

@@ -6,7 +6,7 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias, tempora a illo 
 <div class="container login-space">
     <div class="row d-flex justify-content-center">
     <div class="fs-1 text-center mb-3 fw-bold">Create Product</div>
-        <div class="col-sm-4 ">
+        <div class="col-md-5 ">
         <form action="/admin/createProduct" method="POST" enctype="multipart/form-data">
           @csrf
   <div class="mb-3">

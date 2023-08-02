@@ -66,7 +66,11 @@
     .detail-img{
         height:350px;
     }
-    .navbar-images{
+    .detail-img-container{
+        width: 613px;
+        height: 329px;
+    }
+    .navbar-images{ 
         height:20px;
         width:20px;
     }
@@ -123,7 +127,7 @@
     .cart-list-divider{
         border-bottom: 1px solid #ccc;
         margin-bottom: 20px;
-        padding-bottom: 20px
+        padding-bottom: 20px;
     }
     a{
     text-decoration: none;
@@ -158,5 +162,32 @@
     .promo-banner{
         background-color: #333335;
     }
+
+    .detail-description{
+        font-weight: 500;
+        width:35%;
+        margin-left:20%;
+        margin-top:3%;
+        margin-bottom:3%;
+    }
+    input[type="checkbox"]{
+        accent-color:#000;
+       
+        -ms-transform: scale(1.3); /* IE */
+  -moz-transform: scale(1.3); /* FF */
+  -webkit-transform: scale(1.3); /* Safari and Chrome */
+  -o-transform: scale(1.3); /* Opera */
+    }
+    .trashcan{
+        width:25px;
+        height:30px;
+    }
+    .trash-can-container{
+        width:30px;
+        height:40px;
+        padding:0;
+        padding-top:3px;
+    }
+    
 </style>
 </html>

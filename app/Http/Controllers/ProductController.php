@@ -41,7 +41,10 @@ class ProductController extends Controller
     }
     function search(Request $request)
     {
-        $data = Product::where('name', 'like', '%' . $request->input('query') . '%')->get();
+        $data = Product::where('name','like', '%' . $request->input('query') . '%')
+        ->orWhere('brand','like', '%' . $request->input('query') . '%')
+        ->orWhere('category','like', '%' . $request->input('query') . '%')
+        ->get();
         $query=$request->input('query');
         return view('search', ['products' => $data],['query'=>$query]);
     }
@@ -58,8 +61,8 @@ class ProductController extends Controller
             }
             else{
                 $cart = new Cart;
-                $cart->user_id = $request->session()->get('user')['id'];
-                $cart->product_id = $request->product_id;
+                $cart->user_id = $userId;
+                $cart->product_id = $productId;
                 $cart->count=1;
                 $cart->save();
 
@@ -151,7 +154,7 @@ class ProductController extends Controller
             $order = new Order;
             $order->product_id = $cart['product_id'];
             $order->user_id = $cart['user_id'];
-            $order->status = "pending";
+            $order->status = "Order Placed";
             $order->count=$cart['count'];
             $order->payment_method = $request->paymentmethod;
             if ($order->payment_method == 'COD') {
@@ -330,6 +333,22 @@ function deleteCategory($id)
     {
         Category::destroy($id);
         return redirect('/admin/brandinfo');
+    }
+    function changeStatus(Request $request){
+         $selectedStatuses=$request->input('status');
+
+        foreach ($selectedStatuses as $orderID => $status) {
+            // Fetch the order using the order ID
+            $order = Order::find($orderID);
+    
+            if ($order) {
+                // Update the status for the order
+                $order->status = $status;
+                $order->update();
+            }
+        }
+        
+        return redirect('/admin/orders');
     }
 
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
@@ -62,7 +63,7 @@ Route::post('/createBrand',[ProductController::class,'createBrand']);
 Route::post('/createCategory',[ProductController::class,'createCategory']);
 Route::get('deleteBrand/{id}',[ProductController::class,'deleteBrand']);
 Route::get('deleteCategory/{id}',[ProductController::class,'deleteCategory']);
-
+Route::put('/changeStatus',[ProductController::class,'changeStatus']);
 });
 
 

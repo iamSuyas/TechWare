@@ -37,13 +37,14 @@
               <img class="trending-image" src="{{asset('storage/'. $product->gallery)}}" >
               <div class="text-dark text-center mt-2 px-2 position-absolute">
                 <p class="m-0 text-start fs-5">{{$product['name']}}</p>
-                <p class="m-0 text-start fs-6">Rs. {{$product['price']}}</p>
+                <p class="m-0 text-start fs-6">NPR {{$product['price']}}</p>
               </div>
     </a>
   </div>
   @endforeach
 </div>
 </div>
+
 <div class="w-100 d-flex justify-content-center mt-5 promo-banner"><img src="/images/BlackXBOXSeriesS.jpg" alt="" class="w-75"></div>
 
 <div class="trending-wrapper px-5">
@@ -58,7 +59,7 @@
         <img class="trending-image" src="{{asset('storage/'. $product->gallery)}}" >
         <div class="text-dark text-center mt-2 px-2 position-absolute">
           <p class="m-0 text-start fs-5">{{$product['name']}}</p>
-          <p class="m-0 text-start fs-6">Rs. {{$product['price']}}</p>
+          <p class="m-0 text-start fs-6">NPR {{$product['price']}}</p>
         </div>
       </a>
   </div>

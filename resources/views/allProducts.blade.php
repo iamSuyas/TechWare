@@ -12,7 +12,7 @@
     <img class="trending-image" src="{{asset('storage/'. $product->gallery)}}" >
     <div class="text-dark text-center mt-2 px-2 position-absolute">
       <p class="m-0 text-start fs-5">{{$product['name']}}</p>
-      <p class="m-0 text-start fs-6">Rs. {{$product['price']}}</p>
+      <p class="m-0 text-start fs-6">NPR {{$product['price']}}</p>
     </div>
     </a>
   </div>
