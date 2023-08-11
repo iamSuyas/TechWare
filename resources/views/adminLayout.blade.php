@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <nav class="navbar  border-bottom ">
+    <nav class="navbar  border-bottom w-100 position-fixed bg-light">
         <div class="container">
             <div class="d-flex align-items-center gap-1">
                 <a class="navbar-brand" href="/">
@@ -237,6 +237,9 @@
 
     input.no-spinners {
         -moz-appearance: textfield;
+    }
+    .admin-panel{
+        padding-top:50px !important;
     }
 </style>
 

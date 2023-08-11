@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('count');
             $table->string('payment_method');
             $table->string('payment_status');
-            $table->string('address');
+            $table->string('address')->default('');
             $table->timestamps();
         });
     }

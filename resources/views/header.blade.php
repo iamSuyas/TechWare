@@ -98,8 +98,8 @@ if (Session::has('user')) {
                             <li><a class="dropdown-item " href="/admin/logout">Logout</a></li>
                         @else
                             <li><a href="/login" class="dropdown-item">Login</a></li>
+                            <li><a href="/register" class="dropdown-item">Sign Up</a></li>
                             <li><a href="/admin/login" class="dropdown-item">Admin Login</a></li>
-                            <li><a href="/register" class="dropdown-item">Register</a></li>
                         @endif
                     </ul>
                 </div>

@@ -11,7 +11,7 @@
                         <div class=" d-flex searched-product cart-list-divider flex-nowrap">
                             <div class="col-sm-3 d-flex justify-content-evenly align-items-center">
                                 <div class="mx-2"><input type="checkbox" name="selected_cart_ids[]"
-                                        value="{{ $product->cartId }}" class="rounded"></div>
+                                        value="{{ $product->cartId }}" class="rounded" checked></div>
                                 <a href="detail/{{ $product->id }}">
                                     <div class=""><img class="trending-image"
                                             src="{{ asset('storage/' . $product->gallery) }}"></div>
@@ -39,7 +39,7 @@
                             </div>
                             <div class="d-flex justify-content-center align-items-center"><a
                                     href="/removecart/{{ $product->cartId }}"
-                                    class="btn btn-outline-dark trash-can-container"><img src="/images/delete.png"
+                                    class="d-flex justify-content-center align-items-center trash-can-container"><img src="/images/delete.png"
                                         alt="" class="trashcan"></a></div>
                         </div>
                     @endforeach

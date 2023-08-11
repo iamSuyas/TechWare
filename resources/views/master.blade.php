@@ -17,9 +17,17 @@
     <div class="fixed-top">
         {{ View::make('header') }}
     </div>
+    
 
-    <div class="content-style">@yield('content')</div>
+    <div class="content-style">
+        @if(session()->has('message'))
+        <div class="alert alert-success">
+        {{session()->get('message')}}
+        </div>
+        @endif
+        @yield('content')</div>
     {{ View::make('footer') }}
+    
 </body>
 <style>
     .login-space {
@@ -227,7 +235,8 @@
         width: 30px;
         height: 40px;
         padding: 0;
-        padding-top: 3px;
+        border: 2px solid black;
+        border-radius:7px;
     }
 </style>
 

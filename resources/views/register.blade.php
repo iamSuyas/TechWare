@@ -3,7 +3,7 @@
     <div class="container login-space">
         <div class="row d-flex justify-content-center ">
             <div class="col-sm-4">
-                <div class="text-center fs-3">User Register</div>
+                <div class="text-center fs-3">Sign Up</div>
                 <form action="register" method="POST">
                     @csrf
                     <div class="mb-3">
@@ -29,7 +29,7 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-dark  w-100 py-2">Register</button>
+                    <button type="submit" class="btn btn-dark  w-100 py-2">Sign Up</button>
                 </form>
             </div>
         </div>

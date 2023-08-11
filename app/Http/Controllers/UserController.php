@@ -25,15 +25,18 @@ class UserController extends Controller
     }
     function adminLogin(Request $request)
     {
+        $request->validate([
+            'email' => "required",
+            'password' => "required",
+        ]);
         $admin = Admin::where(['email' => $request->email])->first();
 
         if (!$admin || !Hash::check($request->password, $admin->password)) {
-            return redirect('/admin/login');
+            return redirect('admin/login');
         } else {
             $request->session()->put('admin', $admin);
             return redirect('/admin/orders');
         }
-
     }
 
     function register(Request $request)
@@ -42,7 +45,6 @@ class UserController extends Controller
             'name' => "required|min:3|max:255",
             'email' => "required|email|unique:users,email",
             'password' => "required|min:3|max:255",
-
         ]);
 
 
@@ -68,8 +70,8 @@ class UserController extends Controller
             'name' => "required|min:3|max:255",
             'email' => "required|email|unique:users,email",
             'password' => "required|min:3|max:255",
-
         ]);
+        
         $admin = new Admin;
         $admin->name = $request->name;
         $admin->email = $request->email;

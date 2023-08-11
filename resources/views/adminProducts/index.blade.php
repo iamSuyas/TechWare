@@ -1,9 +1,9 @@
 @extends('adminLayout')
 
 @section('adminContent')
-    <div class="custom-product d-flex justify-content-center">
+    <div class="custom-product d-flex justify-content-center admin-panel">
         <div class="col-sm-10">
-            <div class="text-end w-75 fw-bold mt-3"><a href="/admin/createProductPage" class="btn btn-dark">Add</a></div>
+            <div class="text-end w-75 fw-bold mt-3"><a href="/admin/createProductPage" class="btn btn-dark">Add Product</a></div>
             <h4 class="w-100 text-center fs-2 fw-bold mt-3">Product List </h4>
             <div class="trending-wrapper border-top">
                 @foreach ($products as $product)

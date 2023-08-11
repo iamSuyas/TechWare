@@ -20,7 +20,7 @@
 
                     <button type="submit" class="btn btn-dark  w-100 py-2">Login</button>
                 </form>
-                <a href="/register" class="btn btn-outline-dark  w-100 py-2 mt-2">Register</a>
+                <p class="fw-semibold text-end pt-2">Don't have an account? <a href="/register" class="fw-normal">Sign Up</a></p>
             </div>
         </div>
     </div>

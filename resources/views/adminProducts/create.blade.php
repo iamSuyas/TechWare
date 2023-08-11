@@ -1,9 +1,7 @@
 @extends('adminLayout')
 
 @section('adminContent')
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias, tempora a illo incidunt deserunt fugiat laborum
-    eveniet. Magni quo asperiores velit deserunt iste vitae, rem voluptatum quam nulla mollitia in. Lorem ipsum dolor sit
-    amet consectetur adipisicing elit libero
+    
 
     <div class="container login-space">
         <div class="row d-flex justify-content-center">

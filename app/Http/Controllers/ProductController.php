@@ -66,9 +66,8 @@ class ProductController extends Controller
                 $cart->product_id = $productId;
                 $cart->count = 1;
                 $cart->save();
-
             }
-            return redirect()->back();
+            return redirect()->back()->with('message', 'Cart added successfully.');
         } else {
             return redirect('/login');
         }
@@ -120,35 +119,13 @@ class ProductController extends Controller
         return redirect('/cartlist');
 
     }
-    public function orderNow(Request $request)
-    {
-
-        $userId = Session::get('user')['id'];
-        $selectedCartIds = $request->input('selected_cart_ids', []);
-
-        // Get the cart items for the current user session
-        $cartItems = Cart::where('user_id', $userId)
-            ->whereIn('id', $selectedCartIds)
-            ->with('product')
-            ->get();
-
-        $total = 0;
-
-        foreach ($cartItems as $item) {
-            // Calculate the total price for each item (price * count)
-            $itemTotal = $item->product->price * $item->count;
-            // Add the item total to the overall total
-            $total += $itemTotal;
-
-
-        }
-
-        return view('orderNow', ['total' => $total]);
-    }
+    
     function orderPlace(Request $request)
     {
         $userId = Session::get('user')['id'];
         $allCart = Cart::where('user_id', $userId)->get();
+        $selectedCartIds = $request->input('selectedCartIds', []);
+
         foreach ($allCart as $cart) {
             $order = new Order;
             $order->product_id = $cart['product_id'];
@@ -163,9 +140,11 @@ class ProductController extends Controller
             }
             $order->address = $request->address;
             $order->save();
-            Cart::where('user_id', $userId)->delete();
         }
-        return redirect('/');
+        foreach($selectedCartIds as $selectedCartId) {
+            Cart::where('id',$selectedCartId)->delete();
+        }
+        return redirect('/');   
     }
 
     function myOrder(Request $request)
@@ -174,6 +153,7 @@ class ProductController extends Controller
             $userId = Session::get('user')['id'];
             $orders = DB::table('orders')->join('products', 'orders.product_id', '=', 'products.id')
                 ->where('orders.user_id', $userId)
+                ->orderBy('orders.id', 'desc')
                 ->get();
 
             return view('myOrders', ['orders' => $orders]);
@@ -221,7 +201,7 @@ class ProductController extends Controller
             // Add the item total to the overall total
             $total += $itemTotal;
         }
-        $data = ['total' => $total, 'cartItems' => $cartItems, 'order' => $order];
+        $data = ['total' => $total, 'cartItems' => $cartItems, 'order' => $order, 'selectedCartIds' => $selectedCartIds];
         return view('orderNow', $data);
     }
 
@@ -231,13 +211,15 @@ class ProductController extends Controller
         $sentData = DB::table('orders')
             ->join('products', 'orders.product_id', '=', 'products.id')
             ->join('users', 'users.id', '=', 'orders.user_id')
-            ->select('orders.id as orderID', 'orders.*', 'products.*', 'users.name as userName', 'users.email as userMail')->get();
+            ->select('orders.id as orderID', 'orders.*', 'products.*', 'users.name as userName', 'users.email as userMail')
+            ->orderBy('orders.id','desc')
+            ->get();
         return view('adminOrders.index', ['ordersData' => $sentData]);
     }
     function deleteOrder($id)
     {
         Order::destroy($id);
-        return redirect('/orders/index');
+        return redirect('/admin/orders');
     }
     function createProductPage()
     {
