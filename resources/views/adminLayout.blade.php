@@ -29,7 +29,7 @@
                     <a class="nav-link" aria-current="page" href="/admin/products">Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="/admins">New Admin</a>
+                    <a class="nav-link " aria-current="page" href="/admins">Users & Admins</a>
                 </li>
                 </li>
                 <li class="nav-item">

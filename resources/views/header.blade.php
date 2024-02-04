@@ -93,6 +93,7 @@ if (Session::has('user')) {
                     </button>
                     <ul class="dropdown-menu position-absolute ">
                         @if (Session::has('user'))
+                            <li><a class="dropdown-item " href="/editUser/{{ Session::get('user')['id'] }}">Account Settings</a></li>
                             <li><a class="dropdown-item " href="/user/logout">Logout</a></li>
                         @elseif(Session::has('admin'))
                             <li><a class="dropdown-item " href="/admin/logout">Logout</a></li>

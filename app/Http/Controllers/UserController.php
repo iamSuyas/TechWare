@@ -93,16 +93,42 @@ class UserController extends Controller
     public function updateAdmin(Request $request, $id)
     {
         $request->validate([
-            'name' => "required|min:3|max:255",
-            'email' => "required|email|unique:users,email",
+            'name' => "required",
+            'password' => "required",
 
         ]);
         $admin = Admin::findOrFail($id);
         $admin->name = $request->name;
-        $admin->email = $request->email;
+        $admin->password = $request->password;
         $admin->update();
         return redirect('/admins');
     }
+    public function editUser($id)
+    {
+        $user = User::findOrFail($id);
+        return view('userEdit', ['user' => $user]);
+    }
+    public function updateUser(Request $request, $id)
+    {
+        $request->validate([
+            'name' => "required",
+            'password' => "required",
 
-
+        ]);
+        $user = User::findOrFail($id);
+        $user->name = $request->name;
+        $user->password = $request->password;
+        $user->update();
+        return redirect('/');
+    }
+    function showUsers()
+    {
+        $users = User::all();
+        return view('users.index', ['users' => $users]);
+    }
+    function deleteUser($id)
+    {
+        User::destroy($id);
+        return redirect('/users');
+    }
 }

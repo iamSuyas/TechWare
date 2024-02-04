@@ -2,7 +2,7 @@
 @section('content')
     <div class="trending-wrapper px-5">
         <div class="w-100 d-flex justify-content-between align-items-center ">
-            <p class="fs-1 fw-medium mt-3">Showing All Products</p>
+            <p class="fs-1 fw-medium mt-3">Showing Filtered Products</p>
         </div>
         <div class="d-flex justify-content-between">
             <div class="productfiltersection border-end">
@@ -54,7 +54,5 @@
     </div>
 </div>
 </div>
-<div class="d-flex justify-content-center mt-4 ">
-    {{ $products->links() }} 
-</div>
+
 @endsection

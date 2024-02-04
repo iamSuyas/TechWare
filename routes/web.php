@@ -24,6 +24,7 @@ Route::middleware('web')->group(function(){
         Session::forget('user');
         return redirect('/');
     });
+Route::get('/editUser/{id}',[UserController::class,'editUser']);
 Route::post('add_to_cart',[ProductController::class,'addToCart']);
 Route::post('buyimmediate',[ProductController::class,'buyImmediate']);
 Route::get('cartlist',[ProductController::class,'cartlist']);
@@ -51,6 +52,8 @@ Route::post('/admin/register',[UserController::class,'adminRegister']);
 Route::get('/admin/{id}/edit',[UserController::class,'editAdmin']);
 Route::put('/admin/{id}',[UserController::class,'updateAdmin']);
 Route::get('deleteAdmin/{id}',[UserController::class,'deleteAdmin']);
+Route::get('/users',[UserController::class,'showUsers']);
+Route::get('deleteUser/{id}',[UserController::class,'deleteUser']);
 Route::get('admin/products',[ProductController::class,'getProducts']);
 Route::get('admin/createProductPage',[ProductController::class,'createProductPage']);
 Route::post('admin/createProduct',[ProductController::class,'createProduct']);
@@ -64,6 +67,7 @@ Route::post('/createCategory',[ProductController::class,'createCategory']);
 Route::get('deleteBrand/{id}',[ProductController::class,'deleteBrand']);
 Route::get('deleteCategory/{id}',[ProductController::class,'deleteCategory']);
 Route::put('/changeStatus',[ProductController::class,'changeStatus']);
+
 });
 
 
@@ -92,6 +96,7 @@ Route::middleware('guest')->group(function(){
     Route::post('/register',[UserController::class,'register']);
     Route::get('/',[ProductController::class,'index']);
     Route::get('/allProducts',[ProductController::class,'allProducts']);
+    Route::get('/filterProducts',[ProductController::class,'filterProducts']);
     Route::get('detail/{id}',[ProductController::class,'detail']);
     Route::get('search',[ProductController::class,'search']);
 });

@@ -238,6 +238,22 @@
         border: 2px solid black;
         border-radius:7px;
     }
+    .pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+}
+.productfiltersection{
+    width:15%;
+    
+}
+.productslayout{
+    width:80%;
+}
+.priceselect{
+    width:60%;
+}
 </style>
 
 </html>

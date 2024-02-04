@@ -20,6 +20,14 @@
                 </div>
                 <p class="fs-6 my-1">NPR {{ $product['price'] }}</p>
                 <div class="d-flex gap-3 mt-1">
+                    @if(Session::has('admin'))
+                        <button type="submit" class="btn btn-dark ">
+                            Add to cart
+                        </button>
+                        <button type="submit" class="btn btn-outline-dark  ">
+                            Buy it now
+                        </button>
+                    @else
                     <form action="/add_to_cart" method="POST">
                         @csrf
                         <input type="hidden" name="product_id" value="{{ $product['id'] }}">
@@ -27,7 +35,6 @@
                             Add to cart
                         </button>
                     </form>
-    
                     <form action="/buyimmediate" method="POST">
                         @csrf
                         <input type="hidden" name="product_id" value="{{ $product['id'] }}">
@@ -35,7 +42,7 @@
                             Buy it now
                         </button>
                     </form>
-                    
+                    @endif
                 </div>
             </div>
         </div>

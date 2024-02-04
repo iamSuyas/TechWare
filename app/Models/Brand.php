@@ -11,8 +11,7 @@ class Brand extends Model
     public $table = 'brand';
 
     protected $fillable=[
-        'name',
-        
+        'name', 
     ];
     
 }

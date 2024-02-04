@@ -31,9 +31,23 @@ class ProductController extends Controller
     }
     function allProducts()
     {
-        $products = Product::all();
+        $products = Product::paginate(10);
         return view('allProducts', ['products' => $products]);
     }
+     function filterProducts(Request $request)
+{
+    // Get the selected minimum and maximum prices from the form
+    $minPrice = $request->input('minPrice');
+    $maxPrice = $request->input('maxPrice');
+    // dd([$minPrice,$maxPrice]);
+    // Use the selected price ranges to filter products
+    
+      $products = Product::where('price', '>=', $minPrice)
+    ->where('price', '<=', $maxPrice)
+    ->get();
+
+    return view('filteredProducts', ['products' => $products]);
+}
     function detail($id)
     {
         $data = Product::findorfail($id);

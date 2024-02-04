@@ -35,7 +35,7 @@
                         <select name="brand" class="form-control">
                             <option value="">--Please select--</option>
                             @foreach ($brands as $brand)
-                                <option value="{{ $brand->id }}" @if ($product->brand == $brand->name) selected @endif>
+                                <option value="{{ $brand->name }}" @if ($product->brand == $brand->name) selected @endif>
                                     {{ $brand->name }}</option>
                             @endforeach
                         </select>

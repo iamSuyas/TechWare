@@ -1,16 +1,16 @@
-@extends('adminLayout')
+@extends('master')
 
-@section('adminContent')
+@section('content')
     <div class="container login-space">
         <div class="row d-flex justify-content-center ">
             <div class="fs-1 text-center mb-3 fw-bold">Change account details</div>
             <div class="col-sm-4">
-                <form method="POST" action="/admin/{{ $admin->id }}">
+                <form method="POST" action="/updateUser/{{ $user->id }}">
                     @csrf
                     <div class="mb-3">
                         <label for="exampleInputName" class="form-label">Name</label>
                         <input type="text" name="name"class="form-control" id="exampleInputName1"
-                            aria-describedby="emailHelp" value="{{ $admin->name }}">
+                            aria-describedby="emailHelp" value="{{ $user->name }}">
                             @error('name')
                             <p class="text-danger">{{$message}}</p>
                             @enderror
